@@ -1,2 +1,2 @@
-käyttäjä = input("Anna nimi: ")
-print("Oot tyhmäpää " + käyttäjä)
+käyttäjä = input("Mikä on sun nimi? :  ")
+print("Heipsu vaan " + käyttäjä + ":3")
