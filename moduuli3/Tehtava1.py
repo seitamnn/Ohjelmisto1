@@ -9,4 +9,4 @@ if kuhapituus < 37:
     puuttuu = 37 - kuhapituus
     print(f"Kuha on liian pieni, laske se veteenkasvamaan! Pituutta tarvitaan vielä {puuttuu} cm.")
 else:
-    print(f"Kuha on tarpeeksi iso!")
+    print(f"Kuha on tarpeeksi iso! ")
