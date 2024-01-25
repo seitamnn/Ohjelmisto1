@@ -5,7 +5,9 @@ import random
 
 lukumaara = int(input("Anna arpakuutioiden lukumäärä: "))
 summa = 0
+
 for i in range(lukumaara):
     nopat = random.randint(1,6)
     summa += nopat
+
 print(f"Arpakuution silmälukujen summa on {summa}.")
