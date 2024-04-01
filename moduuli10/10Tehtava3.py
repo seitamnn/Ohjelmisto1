@@ -1,9 +1,6 @@
-# Jatka edellisen tehtävän ohjelmaa siten, että teet Talo-luokan.
-# Talon alustajaparametreina annetaan alimman ja ylimmän kerroksen numero sekä hissien lukumäärä.
-# Talon luonnin yhteydessä talo luo tarvittavan määrän hissejä.
-# Hissien lista tallennetaan talon ominaisuutena. Kirjoita taloon metodi aja_hissiä,
-# joka saa parametreinaan hissin numeron ja kohdekerroksen. Kirjoita pääohjelmaan lauseet talon
-# luomiseksi ja talon hisseillä ajelemiseksi.
+# Jatka edellisen tehtävän ohjelmaa siten, että Talo-luokassa on parametriton metodi palohälytys,
+# joka käskee kaikki hissit pohjakerrokseen.
+# Jatka pääohjelmaa siten, että talossasi tulee palohälytys.
 
 class Hissi:
     def __init__(self, alin_kerros, ylin_kerros, kerros_nyt):
@@ -45,15 +42,24 @@ class Talo:
         self.hissit = [Hissi(alin_kerros, ylin_kerros, alin_kerros) for _ in range(hissien_lkm)]
 
     def aja_hissiä(self, hissin_numero, kohdekerros):
-        if 0 <= hissin_numero < self.hissien_lkm:
+        if 0 <= hissin_numero < self.hissien_lkm: #jos hissin nro on min. sama tai isompi kuin 0 ja max. hissien lkm
             self.hissit[hissin_numero].siirry_kerrokseen(kohdekerros)
         else:
             print(f"Hissiä numerolla {hissin_numero} ei ole talossa.")
 
-talo = Talo(1, 10, 2)  # Luodaan talo, jossa on kaksi hissiä
+    def palohalytys(self):
+        for hissi in self.hissit:
+            hissi.siirry_kerrokseen(self.alin_kerros)
+
+talo = Talo(1, 11, 4)  # Luodaan talo, jossa on kaksi hissiä
 print(f'Talossa on {talo.ylin_kerros} kerrosta. Hissien lukumäärä on {len(talo.hissit)}')
 talo.aja_hissiä(0, 6)
 talo.aja_hissiä(1, 8)
 
 for i, hissi in enumerate(talo.hissit):
-    print(f"Hissi {i} on nyt kerroksessa {hissi.kerros_nyt}.")
+    print(f"Hissi {i + 1} on nyt kerroksessa {hissi.kerros_nyt}.")
+
+talo.palohalytys()
+
+for i, hissi in enumerate(talo.hissit):
+    print(f"Hissi {i + 1} on nyt kerroksessa {hissi.kerros_nyt}.")
